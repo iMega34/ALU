@@ -25,10 +25,10 @@ module InstructionMemory (
             Formato de las instrucciones:
             R-Type:
                 | Func7 Bits[31:25] | Register Source2 Bits[24:20] | Register Source1 Bits[19:15] | Func3 Bits[14:12] | Register Destination Bits[11:7] | Opcode Bits[6:0] |
-            I-Type:
-                | Offset Bits[31:20] | Memory Location Bits[19:15] | Func3 Bits[14:12] | Register Destination Bits[11:7] | Opcode Bits[6:0] |
             S-Type:
                 | Offset2 Bits[31:25] | Register Source Bits[24:20] | Memory Location Bits[19:15] | Func3 Bits[14:12] | Offset1 Bits[11:7] | Opcode Bits[6:0] |
+            I-Type:
+                | Offset Bits[31:20] | Memory Location Bits[19:15] | Func3 Bits[14:12] | Register Destination Bits[11:7] | Opcode Bits[6:0] |
             */
 
             // Primera instrucción -> Suma el registro x0 con el registro x1
