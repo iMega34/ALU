@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at data_memory.v(23): always construct contains both blocking and non-blocking assignments File: D:/IntelQuartus/ALU/data_memory.v Line: 23

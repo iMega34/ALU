@@ -1,0 +1,438 @@
+
+module CPU (
+    input clk, reset
+);
+
+    wire [31:0] w_pc, w_pc_next, w_instruction,
+                w_read_data1, w_read_data2, w_to_alu,
+                w_alu_control, w_alu_result, w_data_output,
+                w_write_back_reg_file;
+    wire w_alu_zero, w_alu_negative, w_alu_carry, w_alu_overflow,
+         w_reg_write, w_mem_read, w_mem_write, w_mem_to_reg, w_branch, w_alu_src;
+    wire [1:0] w_alu_opcode;
+
+    // Sumador de 4 para PC
+    NextPC NextPC (
+        .from_pc(w_pc),
+        .next_to_pc(w_pc_next)
+    );
+
+    // Program Counter
+    PC PC (
+        .clk(clk),
+        .reset(reset),
+        .pc_input(w_pc_next),
+        .pc_output(w_pc)
+    );
+
+    // Memoria de instrucciones
+    InstructionMemory InstructionMemory (
+        .clk(clk),
+        .reset(reset),
+        .read_address(w_pc),
+        .instruction(w_instruction)
+    );
+
+    // Banco de registros (32 registros de 32 bits)
+    RegisterFile RegisterFile (
+        .clk(clk),
+        .reset(reset),
+        .write_enable(w_reg_write),
+        .reg_src1(w_instruction[19:15]),
+        .reg_src2(w_instruction[24:20]),
+        .reg_dest(w_instruction[11:7]),
+        .data_input(w_write_back_reg_file),
+        .read_data1(w_read_data1),
+        .read_data2(w_read_data2)
+    );
+
+    // ALU
+    ALU ALU (
+        .a(w_read_data1),
+        .b(w_alu_src ? w_instruction[31:20] : w_read_data2),
+        .opcode(w_alu_control),
+        .result(w_alu_result),
+        .negative(w_alu_negative),
+        .zero(w_alu_zero),
+        .carry(w_alu_carry),
+        .overflow(w_alu_overflow)
+    );
+
+    // Unidad de control de la ALU
+    ALUControl ALUControl (
+        .alu_opcode(w_alu_opcode),
+        .func7(w_instruction[30]),
+        .func3(w_instruction[14:12]),
+        .alu_control(w_alu_control)
+    );
+
+    // Memoria de datos
+    DataMemory DataMemory (
+        .clk(clk),
+        .reset(reset),
+        .mem_read(w_mem_read),
+        .mem_write(w_mem_write),
+        .address(w_alu_result[4:0]),
+        .data_input(w_read_data2),
+        .data_output(w_data_output)
+    );
+
+    // MUX2 -> Selecciona el origen de la entrada 'data_input' del banco de registros
+    MUX MUX2 (
+        .a(w_data_output),
+        .b(w_alu_result),
+        .select(w_mem_to_reg),
+        .mux_output(w_write_back_reg_file)
+    );
+
+    // Unidad de control
+    ControlUnit ControlUnit (
+        .opcode(w_instruction[6:0]),
+        .branch(),
+        .memory_read(w_mem_read),
+        .memory_to_register(w_mem_to_reg),
+        .memory_write(w_mem_write),
+        .alu_src(w_alu_src),
+        .reg_write(w_reg_write),
+        .alu_opcode(w_alu_opcode)
+    );
+
+endmodule
+
+module PC (
+    input clk, reset,
+    input [31:0] pc_input,
+    output reg [31:0] pc_output
+);
+
+    always @(posedge clk or posedge reset) begin
+        if (reset)
+            pc_output <= 32'b0;
+        else
+            pc_output <= pc_input;
+    end
+
+endmodule
+
+module NextPC (
+    input [31:0] from_pc,
+    output [31:0] next_to_pc
+);
+
+    assign next_to_pc = (from_pc + 1) % 32;
+
+endmodule
+
+module InstructionMemory (
+    input clk, reset,
+    input [31:0] read_address,
+    output [31:0] instruction
+);
+    reg [31:0] memory [31:0];
+    integer i;
+
+    always @(posedge clk) begin
+        if (reset) begin
+            for (i = 0; i < 32; i = i + 1) begin
+                memory[i] <= 32'h0;
+            end
+        end
+        else begin
+            /*
+                Algoritmo de prueba -> Serie de Fibonacci
+
+                Valores iniciales:
+                    a = 0
+                    b = 1
+                    Resultado de la sumatoria = 0
+
+                Formato de las instrucciones:
+                R-Type:
+                    | Func7 Bits[31:25] | Register Source2 Bits[24:20] | Register Source1 Bits[19:15] | Func3 Bits[14:12] | Register Destination Bits[11:7] | Opcode Bits[6:0] |
+                I-Type:
+                    | Immediate Bits[31:20] | Register Source Bits[19:15] | Func3 Bits[14:12] | Register Destination Bits[11:7] | Opcode Bits[6:0] |
+                S-Type:
+                    | Immediate Bits[31:25] | Register Source2 Bits[24:20] | Register Source1 Bits[19:15] | Func3 Bits[14:12] | Immediate Bits[11:7] | Opcode Bits[6:0] |
+            */
+
+            // Inicializa registros
+            memory[1] <= 32'b0000000_00001_00000_000_00010_0110011; // adcs x0, x1, x2 -> Suma a + b y lo guarda en el registro del primer operando
+            memory[2] <= 32'b0100000_00010_00000_010_00010_0010011; // sw x1, 0(x0) -> Guarda el valor de la variable de resultado en la primera posición de la memoria de datos
+            memory[3] <= 32'b0000000_00000_00000_010_00000_0000011; // lw x0, 0(x0) -> Carga el valor de la variable de resultado en el registro del primer operando
+            memory[4] <= 32'b0000000_00001_00000_000_00010_0110011; // adcs x0, x1, x2 -> Suma a + b y lo guarda en el registro del primer operando
+
+            // memory[1] <= 32'b0000000_00000_00001_000_00010_0110011; // adcs x0, x1, x2
+            // memory[2] <= 32'b0000000_00010_00101_001_11010_0110011; // sbcs x2, x5, x26
+            // memory[3] <= 32'b0100000_00110_01000_010_10010_0110011; // rsbs x6, x8, x18
+            // memory[4] <= 32'b0100000_00101_01011_011_11100_0110011; // muls x5, x11, x28
+            // memory[5] <= 32'b0100000_00011_00010_010_00101_0100011; // sw x5, 3(x2) -> store word in memory at x2 + 3
+            // memory[6] <= 32'b0000000_00011_00010_010_00111_0000011; // lw x7, 3(x2) -> load word from memory at x2 + 3 into x7
+            // memory[7] <= 32'b0000000_10000_00111_000_01000_0110011; // adcs x16, x7, x8 -> sum x7 with x8 and store in x16
+            // memory[8] <= 32'b0000000_00110_01110_111_11110_0110011; // ands x6, x14, x30
+            // memory[9] <= 32'b0100000_00100_10001_111_01001_0110011; // cmp x9, x17, x4
+        end
+    end
+
+    assign instruction = memory[read_address];
+
+endmodule
+
+module RegisterFile (
+    input clk, reset,
+    input write_enable,
+    input [4:0] reg_src1, reg_src2, reg_dest,
+    input [31:0] data_input,
+    output [31:0] read_data1, read_data2
+);
+
+    reg [31:0] registers [31:0];
+    integer i;
+
+    initial begin
+        for (i = 0; i < 32; i = i + 1)
+            registers[i] = 32'h0;
+        registers[1] = 1;
+    end
+
+    always @(posedge clk) begin
+        if (reset) begin
+            for (i = 0; i < 32; i = i + 1)
+                registers[i] <= 32'h0;
+        end
+        else if (write_enable)
+            registers[reg_dest] <= data_input;
+    end
+
+    assign read_data1 = registers[reg_src1];
+    assign read_data2 = registers[reg_src2];
+
+endmodule
+
+module ALUControl (
+    input [1:0] alu_opcode,
+    input func7,
+    input [2:0] func3,
+    output reg [3:0] alu_control
+);
+
+    always @(*) begin
+        case (alu_opcode)
+            2'b00: alu_control <= 0; // I-type -> Load instructions
+            2'b01: alu_control <= 1; // SB-type -> Branch instructions
+            2'b10: // R-type -> Arithmetic and logic operations
+                case ({func7, func3})
+                    6'b0_000: alu_control <= 0; // ADCS -> Add with carry
+                    6'b1_000: alu_control <= 1; // ADD -> Add without carry
+                    6'b0_001: alu_control <= 2; // SBCS -> Substract with carry
+                    6'b1_001: alu_control <= 3; // SUBS -> Substract without carry
+                    6'b1_010: alu_control <= 4; // RSBS -> Reverse substract
+                    6'b1_011: alu_control <= 5; // MULS -> Multiply
+                    6'b0_111: alu_control <= 6; // ANDS -> Logical AND
+                    6'b0_110: alu_control <= 7; // ORRS -> Logical OR
+                    6'b1_111: alu_control <= 8; // CMP -> Compare greater than, less than or equal
+                    default: alu_control <= 0; // ADCS -> Add with carry
+                endcase
+            default: alu_control <= 0; // I-type -> Load instructions
+        endcase
+    end
+
+endmodule
+
+module ALU(
+    input [31:0] a,
+    input [31:0] b,
+    input [3:0] opcode,
+    output reg [31:0] result,
+    output reg negative,
+    output reg zero,
+    output reg carry,
+    output reg overflow
+);
+
+    wire [31:0] add_result;
+    wire [31:0] sub_result;
+    wire [31:0] mul_result;
+    wire add_carry;
+    wire sub_carry;
+
+    n_bit_adder ADDER(
+        .a(a),
+        .b(b),
+        .result(add_result),
+        .carry_out(add_carry)
+    );
+
+    n_bit_adder SUBSTRACTOR(
+        .a(a),
+        .b(~b + 1),
+        .result(sub_result),
+        .carry_out(sub_cary)
+    );
+
+    multiplier MULTIPLIER(
+        .a(a),
+        .b(b),
+        .result(mul_result)
+    );
+
+    always @(opcode or a or b) begin
+        case (opcode)
+            0: // ADCS -> Add with carry
+                begin
+                    result = add_result;
+                    carry = add_carry;
+                    negative = add_result[31];
+                end
+
+            1: // ADD -> Add without carry
+                begin
+                    result = add_result;
+                    negative = add_result[31];
+                end
+
+            2: // SBCS -> Substract with carry
+                begin
+                    result = sub_result;
+                    carry = ~sub_carry;
+                    negative = sub_result[31];
+                end
+
+            3 : // SUBS -> Substract without carry
+                begin
+                    result = sub_result;
+                    negative = sub_result[31];
+                end
+
+            4: // RSBS -> Reverse substract
+                begin
+                    result = ~sub_result + 1;
+                    negative = sub_result[31];
+                end
+
+            5: // MULS -> Multiply
+                result = mul_result[31:0];
+
+            6: // ANDS -> Logical AND
+                result = a & b;
+
+            7: // ORRS -> Logical OR
+                result = a | b;
+
+            8: // CMP -> Compare greater than, less than or equal
+                begin
+                    if (a == b) begin
+                        zero = 1;
+                        negative = 0;
+                    end
+                    else if (a < b) begin
+                        zero = 0;
+                        negative = 1;
+                    end
+                    else begin
+                        zero = 0;
+                        negative = 0;
+                    end
+                end
+        endcase
+    end
+
+endmodule
+
+module MUX (
+    input select,
+    input [31:0] a, b,
+    output [31:0] mux_output
+);
+
+    assign mux_output = select ? a : b;
+
+endmodule
+
+module DataMemory (
+    input clk, reset,
+    input mem_read, mem_write,
+    input [4:0] address,
+    input [31:0] data_input,
+    output [31:0] data_output
+);
+
+    reg [31:0] memory [31:0];
+    integer i;
+
+    assign data_output = mem_read ? memory[address] : 32'h0;
+
+    initial begin
+        for (i = 0; i < 32; i = i + 1)
+            memory[i] = 32'h0;
+    end
+
+    always @(posedge clk) begin
+        if (reset) begin
+            for (i = 0; i < 32; i = i + 1)
+                memory[i] <= 32'h0;
+        end
+        else begin
+            if (mem_write)
+                memory[address] = data_input;
+        end
+    end
+
+endmodule
+
+module ControlUnit (
+    input [6:0] opcode,
+    output reg branch, memory_read, memory_to_register, memory_write, alu_src, reg_write,
+    output reg [1:0] alu_opcode
+);
+
+    always @(*) begin
+        case (opcode)
+            7'b0110011: begin // R-type -> Arithmetic and logic operations
+                alu_src <= 0;
+                memory_to_register <= 0;
+                reg_write <= 1;
+                memory_read <= 0;
+                memory_write <= 0;
+                branch <= 0;
+                alu_opcode <= 2'b10;
+            end
+            7'b0000011: begin // I-type -> Load instructions
+                alu_src <= 1;
+                memory_to_register <= 1;
+                reg_write <= 1;
+                memory_read <= 1;
+                memory_write <= 0;
+                branch <= 0;
+                alu_opcode <= 2'b00;
+            end
+            7'b0010011: begin // S-type -> Store instructions
+                alu_src <= 1;
+                memory_to_register <= 0;
+                reg_write <= 0;
+                memory_read <= 0;
+                memory_write <= 1;
+                branch <= 0;
+                alu_opcode <= 2'b00;
+            end
+            7'b1100011: begin // SB-type -> Branch instructions
+                alu_src <= 0;
+                memory_to_register <= 0;
+                reg_write <= 0;
+                memory_read <= 0;
+                memory_write <= 0;
+                branch <= 1;
+                alu_opcode <= 2'b01;
+            end
+            default: begin // R-type -> Arithmetic and logic operations
+                alu_src <= 0;
+                memory_to_register <= 0;
+                reg_write <= 1;
+                memory_read <= 0;
+                memory_write <= 0;
+                branch <= 0;
+                alu_opcode <= 2'b10;
+            end
+        endcase
+    end
+
+endmodule

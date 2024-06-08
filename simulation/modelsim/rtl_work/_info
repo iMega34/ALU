@@ -1,0 +1,351 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/IntelQuartus/ALU/simulation/modelsim
+vALU
+Z1 !s110 1717805936
+!i10b 1
+!s100 ?6YM1a7DV35jQ4^gZO2Pm3
+I4PX?GOc5GoY[@ZC8R<eTd3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1717726140
+8D:/IntelQuartus/ALU/ALU.v
+FD:/IntelQuartus/ALU/ALU.v
+L0 2
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1717805936.000000
+!s107 D:/IntelQuartus/ALU/ALU.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/IntelQuartus/ALU|D:/IntelQuartus/ALU/ALU.v|
+!i113 1
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+D:/IntelQuartus/ALU
+Z7 tCvgOpt 0
+n@a@l@u
+vALUControl
+R1
+!i10b 1
+!s100 2@55hR5N6VP:l6?d01I`@3
+I:O`0FQa<6:ze;VM`BjidV0
+R2
+R0
+w1717003456
+8D:/IntelQuartus/ALU/ALU_control.v
+FD:/IntelQuartus/ALU/ALU_control.v
+L0 2
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/IntelQuartus/ALU/ALU_control.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/IntelQuartus/ALU|D:/IntelQuartus/ALU/ALU_control.v|
+!i113 1
+R5
+R6
+R7
+n@a@l@u@control
+vControlUnit
+R1
+!i10b 1
+!s100 7^7n?Y;oRGDjcJMS]QL]n2
+I1Ad:JLA_KShcj3gjBe;In2
+R2
+R0
+w1717716126
+8D:/IntelQuartus/ALU/control_unit.v
+FD:/IntelQuartus/ALU/control_unit.v
+L0 2
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/IntelQuartus/ALU/control_unit.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/IntelQuartus/ALU|D:/IntelQuartus/ALU/control_unit.v|
+!i113 1
+R5
+R6
+R7
+n@control@unit
+vCPU
+R1
+!i10b 1
+!s100 ?hLLU=>?PbMPmCCcB<igl3
+I5fIRRCQY]XV@20zHk]2BN1
+R2
+R0
+w1717800131
+8D:/IntelQuartus/ALU/CPU.v
+FD:/IntelQuartus/ALU/CPU.v
+L0 2
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/IntelQuartus/ALU/CPU.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/IntelQuartus/ALU|D:/IntelQuartus/ALU/CPU.v|
+!i113 1
+R5
+R6
+R7
+n@c@p@u
+vCPU_tb
+R1
+!i10b 1
+!s100 D[L^P:Xzh8ij?518fmS2O3
+Iidb6;PMNR]<JHBB:fM1l73
+R2
+R0
+w1717805395
+8D:/IntelQuartus/ALU/simulation/CPU_tb.v
+FD:/IntelQuartus/ALU/simulation/CPU_tb.v
+L0 2
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/IntelQuartus/ALU/simulation/CPU_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/IntelQuartus/ALU/simulation|D:/IntelQuartus/ALU/simulation/CPU_tb.v|
+!i113 1
+R5
+!s92 -vlog01compat -work work +incdir+D:/IntelQuartus/ALU/simulation
+R7
+n@c@p@u_tb
+vDataMemory
+R1
+!i10b 1
+!s100 HgmnH=OzB1G]UTFP=VgfX2
+IE1liSNo9`H2k:6`ZfCzDj1
+R2
+R0
+w1717726653
+8D:/IntelQuartus/ALU/data_memory.v
+FD:/IntelQuartus/ALU/data_memory.v
+L0 2
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/IntelQuartus/ALU/data_memory.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/IntelQuartus/ALU|D:/IntelQuartus/ALU/data_memory.v|
+!i113 1
+R5
+R6
+R7
+n@data@memory
+vfull_adder
+Z8 !s110 1717805935
+!i10b 1
+!s100 g`IZ2R8[2mVI?W?60dQF32
+IiioiM>Dca_Gm4=BNeMK^N0
+R2
+R0
+Z9 w1713843935
+Z10 8D:/IntelQuartus/ALU/n_bit_adder.v
+Z11 FD:/IntelQuartus/ALU/n_bit_adder.v
+L0 32
+R3
+r1
+!s85 0
+31
+Z12 !s108 1717805935.000000
+Z13 !s107 D:/IntelQuartus/ALU/n_bit_adder.v|
+Z14 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/IntelQuartus/ALU|D:/IntelQuartus/ALU/n_bit_adder.v|
+!i113 1
+R5
+R6
+R7
+vhalf_adder
+R8
+!i10b 1
+!s100 ;`T6F8gzG[505;`9`MVaY0
+IBL`LOhUMoz]B7D0?@klcf1
+R2
+R0
+R9
+R10
+R11
+L0 24
+R3
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R5
+R6
+R7
+vInstructionMemory
+R1
+!i10b 1
+!s100 VR4@?zhI;T@cWI8A_WfaV0
+I0m^ch^eVn2G223aZWNA401
+R2
+R0
+w1717801507
+8D:/IntelQuartus/ALU/instruction_memory.v
+FD:/IntelQuartus/ALU/instruction_memory.v
+L0 2
+R3
+r1
+!s85 0
+31
+R12
+!s107 D:/IntelQuartus/ALU/instruction_memory.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/IntelQuartus/ALU|D:/IntelQuartus/ALU/instruction_memory.v|
+!i113 1
+R5
+R6
+R7
+n@instruction@memory
+vmultiplier
+R8
+!i10b 1
+!s100 4zWPfK6Kg1b^0XZW[hHJi2
+IX=SlVfBQP:jiUNe`<QoZk1
+R2
+R0
+w1713887490
+8D:/IntelQuartus/ALU/multiplier.v
+FD:/IntelQuartus/ALU/multiplier.v
+L0 2
+R3
+r1
+!s85 0
+31
+R12
+!s107 D:/IntelQuartus/ALU/multiplier.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/IntelQuartus/ALU|D:/IntelQuartus/ALU/multiplier.v|
+!i113 1
+R5
+R6
+R7
+vMUX
+R8
+!i10b 1
+!s100 Kz?L=T@AX_foVj3K`YlSV3
+IdWHzDaZ1Xn;UXL<ZecOig1
+R2
+R0
+w1716997363
+8D:/IntelQuartus/ALU/MUX.v
+FD:/IntelQuartus/ALU/MUX.v
+L0 2
+R3
+r1
+!s85 0
+31
+R12
+!s107 D:/IntelQuartus/ALU/MUX.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/IntelQuartus/ALU|D:/IntelQuartus/ALU/MUX.v|
+!i113 1
+R5
+R6
+R7
+n@m@u@x
+vn_bit_adder
+R8
+!i10b 1
+!s100 F=bW>^kGcT9a7OP_e_1393
+I`YM<69d7i`[ePRYV44`FU1
+R2
+R0
+R9
+R10
+R11
+L0 2
+R3
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R5
+R6
+R7
+vNextPC
+R8
+!i10b 1
+!s100 ]:Mh=mH5`lZBmC1O7kMbE2
+I0LKm1zd=CY:2aikkh9UJd2
+R2
+R0
+Z15 w1717641665
+Z16 8D:/IntelQuartus/ALU/PC.v
+Z17 FD:/IntelQuartus/ALU/PC.v
+L0 17
+R3
+r1
+!s85 0
+31
+R12
+Z18 !s107 D:/IntelQuartus/ALU/PC.v|
+Z19 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/IntelQuartus/ALU|D:/IntelQuartus/ALU/PC.v|
+!i113 1
+R5
+R6
+R7
+n@next@p@c
+vPC
+R8
+!i10b 1
+!s100 H:z9A]2:=E9UlAnjDQ30O2
+I_OZXYPh2O`Y`XVCn0EI1M3
+R2
+R0
+R15
+R16
+R17
+L0 2
+R3
+r1
+!s85 0
+31
+R12
+R18
+R19
+!i113 1
+R5
+R6
+R7
+n@p@c
+vRegisterFile
+!s110 1717805934
+!i10b 1
+!s100 6n]i`XQ0`=cZHQ_QcXO1C2
+I5bTf:bhLA=:12<Ba13Kc]3
+R2
+R0
+w1717801560
+8D:/IntelQuartus/ALU/reg_file.v
+FD:/IntelQuartus/ALU/reg_file.v
+L0 2
+R3
+r1
+!s85 0
+31
+!s108 1717805934.000000
+!s107 D:/IntelQuartus/ALU/reg_file.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/IntelQuartus/ALU|D:/IntelQuartus/ALU/reg_file.v|
+!i113 1
+R5
+R6
+R7
+n@register@file

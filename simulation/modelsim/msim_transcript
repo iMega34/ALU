@@ -1,0 +1,255 @@
+# Reading D:/intelFPGA_lite/18.0/modelsim_ase/tcl/vsim/pref.tcl
+# do ALU_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying D:/intelFPGA_lite/18.0/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+D:/IntelQuartus/ALU {D:/IntelQuartus/ALU/reg_file.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:18:54 on Jun 07,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/IntelQuartus/ALU" D:/IntelQuartus/ALU/reg_file.v 
+# -- Compiling module RegisterFile
+# 
+# Top level modules:
+# 	RegisterFile
+# End time: 18:18:54 on Jun 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/IntelQuartus/ALU {D:/IntelQuartus/ALU/PC.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:18:55 on Jun 07,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/IntelQuartus/ALU" D:/IntelQuartus/ALU/PC.v 
+# -- Compiling module PC
+# -- Compiling module NextPC
+# 
+# Top level modules:
+# 	PC
+# 	NextPC
+# End time: 18:18:55 on Jun 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/IntelQuartus/ALU {D:/IntelQuartus/ALU/n_bit_adder.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:18:55 on Jun 07,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/IntelQuartus/ALU" D:/IntelQuartus/ALU/n_bit_adder.v 
+# -- Compiling module n_bit_adder
+# -- Compiling module half_adder
+# -- Compiling module full_adder
+# 
+# Top level modules:
+# 	n_bit_adder
+# End time: 18:18:55 on Jun 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/IntelQuartus/ALU {D:/IntelQuartus/ALU/MUX.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:18:55 on Jun 07,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/IntelQuartus/ALU" D:/IntelQuartus/ALU/MUX.v 
+# -- Compiling module MUX
+# 
+# Top level modules:
+# 	MUX
+# End time: 18:18:55 on Jun 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/IntelQuartus/ALU {D:/IntelQuartus/ALU/multiplier.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:18:55 on Jun 07,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/IntelQuartus/ALU" D:/IntelQuartus/ALU/multiplier.v 
+# -- Compiling module multiplier
+# 
+# Top level modules:
+# 	multiplier
+# End time: 18:18:55 on Jun 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/IntelQuartus/ALU {D:/IntelQuartus/ALU/instruction_memory.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:18:55 on Jun 07,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/IntelQuartus/ALU" D:/IntelQuartus/ALU/instruction_memory.v 
+# -- Compiling module InstructionMemory
+# 
+# Top level modules:
+# 	InstructionMemory
+# End time: 18:18:56 on Jun 07,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/IntelQuartus/ALU {D:/IntelQuartus/ALU/data_memory.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:18:56 on Jun 07,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/IntelQuartus/ALU" D:/IntelQuartus/ALU/data_memory.v 
+# -- Compiling module DataMemory
+# 
+# Top level modules:
+# 	DataMemory
+# End time: 18:18:56 on Jun 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/IntelQuartus/ALU {D:/IntelQuartus/ALU/CPU.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:18:56 on Jun 07,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/IntelQuartus/ALU" D:/IntelQuartus/ALU/CPU.v 
+# -- Compiling module CPU
+# 
+# Top level modules:
+# 	CPU
+# End time: 18:18:56 on Jun 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/IntelQuartus/ALU {D:/IntelQuartus/ALU/control_unit.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:18:56 on Jun 07,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/IntelQuartus/ALU" D:/IntelQuartus/ALU/control_unit.v 
+# -- Compiling module ControlUnit
+# 
+# Top level modules:
+# 	ControlUnit
+# End time: 18:18:56 on Jun 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/IntelQuartus/ALU {D:/IntelQuartus/ALU/ALU_control.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:18:56 on Jun 07,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/IntelQuartus/ALU" D:/IntelQuartus/ALU/ALU_control.v 
+# -- Compiling module ALUControl
+# 
+# Top level modules:
+# 	ALUControl
+# End time: 18:18:56 on Jun 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/IntelQuartus/ALU {D:/IntelQuartus/ALU/ALU.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:18:56 on Jun 07,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/IntelQuartus/ALU" D:/IntelQuartus/ALU/ALU.v 
+# -- Compiling module ALU
+# 
+# Top level modules:
+# 	ALU
+# End time: 18:18:56 on Jun 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+D:/IntelQuartus/ALU/simulation {D:/IntelQuartus/ALU/simulation/CPU_tb.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:18:56 on Jun 07,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/IntelQuartus/ALU/simulation" D:/IntelQuartus/ALU/simulation/CPU_tb.v 
+# -- Compiling module CPU_tb
+# 
+# Top level modules:
+# 	CPU_tb
+# End time: 18:18:56 on Jun 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs="+acc"  CPU_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs=""+acc"" CPU_tb 
+# Start time: 18:18:56 on Jun 07,2024
+# Loading work.CPU_tb
+# Loading work.CPU
+# Loading work.NextPC
+# Loading work.PC
+# Loading work.InstructionMemory
+# Loading work.RegisterFile
+# Loading work.ALU
+# Loading work.n_bit_adder
+# Loading work.multiplier
+# Loading work.ALUControl
+# Loading work.DataMemory
+# Loading work.MUX
+# Loading work.ControlUnit
+# Loading work.half_adder
+# Loading work.full_adder
+# ** Warning: (vsim-3015) D:/IntelQuartus/ALU/CPU.v(52): [PCDPC] - Port size (4) does not match connection size (32) for port 'opcode'. The port definition is at: D:/IntelQuartus/ALU/ALU.v(5).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/dut/ALU File: D:/IntelQuartus/ALU/ALU.v
+# ** Warning: (vsim-3015) D:/IntelQuartus/ALU/ALU.v(33): [PCDPC] - Port size (16) does not match connection size (32) for port 'a'. The port definition is at: D:/IntelQuartus/ALU/multiplier.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/dut/ALU/MULTIPLIER File: D:/IntelQuartus/ALU/multiplier.v
+# ** Warning: (vsim-3015) D:/IntelQuartus/ALU/ALU.v(33): [PCDPC] - Port size (16) does not match connection size (32) for port 'b'. The port definition is at: D:/IntelQuartus/ALU/multiplier.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/dut/ALU/MULTIPLIER File: D:/IntelQuartus/ALU/multiplier.v
+# ** Warning: (vsim-3015) D:/IntelQuartus/ALU/CPU.v(64): [PCDPC] - Port size (4) does not match connection size (32) for port 'alu_control'. The port definition is at: D:/IntelQuartus/ALU/ALU_control.v(6).
+#    Time: 0 ps  Iteration: 0  Instance: /CPU_tb/dut/ALUControl File: D:/IntelQuartus/ALU/ALU_control.v
+# 
+# do D:/IntelQuartus/ALU/simulation/modelsim/init.do
+# do cpu_wave.do
+# onerror {resume}
+# quietly WaveActivateNextPane {} 0
+# add wave -noupdate -radix unsigned /CPU_tb/dut/PC/clk
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: Dany  Hostname: LAPTOP-R967485V  ProcessID: 13224
+#           Attempting to use alternate WLF file "./wlftesb184".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftesb184
+# add wave -noupdate -radix unsigned /CPU_tb/dut/PC/reset
+# add wave -noupdate -radix unsigned /CPU_tb/dut/NextPC/from_pc
+# add wave -noupdate -radix unsigned /CPU_tb/dut/NextPC/next_to_pc
+# add wave -noupdate -radix unsigned /CPU_tb/dut/PC/pc_input
+# add wave -noupdate -radix unsigned /CPU_tb/dut/PC/pc_output
+# add wave -noupdate -radix unsigned /CPU_tb/dut/InstructionMemory/read_address
+# add wave -noupdate -radix binary /CPU_tb/dut/InstructionMemory/instruction
+# add wave -noupdate -radix unsigned /CPU_tb/dut/RegisterFile/write_enable
+# add wave -noupdate -radix unsigned /CPU_tb/dut/RegisterFile/reg_src1
+# add wave -noupdate -radix unsigned /CPU_tb/dut/RegisterFile/reg_src2
+# add wave -noupdate -radix unsigned /CPU_tb/dut/RegisterFile/reg_dest
+# add wave -noupdate -radix unsigned /CPU_tb/dut/RegisterFile/data_input
+# add wave -noupdate -radix decimal /CPU_tb/dut/RegisterFile/read_data1
+# add wave -noupdate -radix decimal /CPU_tb/dut/RegisterFile/read_data2
+# add wave -noupdate -radix decimal /CPU_tb/dut/ALU/a
+# add wave -noupdate -radix decimal /CPU_tb/dut/ALU/b
+# add wave -noupdate -radix binary /CPU_tb/dut/ALU/opcode
+# add wave -noupdate -radix decimal /CPU_tb/dut/ALU/result
+# add wave -noupdate -radix unsigned /CPU_tb/dut/ALU/negative
+# add wave -noupdate -radix unsigned /CPU_tb/dut/ALU/zero
+# add wave -noupdate -radix unsigned /CPU_tb/dut/ALU/carry
+# add wave -noupdate -radix unsigned /CPU_tb/dut/ALU/overflow
+# add wave -noupdate -radix decimal /CPU_tb/dut/ALU/add_result
+# add wave -noupdate -radix decimal -childformat {{{/CPU_tb/dut/ALU/sub_result[31]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[30]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[29]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[28]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[27]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[26]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[25]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[24]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[23]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[22]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[21]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[20]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[19]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[18]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[17]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[16]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[15]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[14]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[13]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[12]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[11]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[10]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[9]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[8]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[7]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[6]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[5]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[4]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[3]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[2]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[1]} -radix decimal} {{/CPU_tb/dut/ALU/sub_result[0]} -radix decimal}} -subitemconfig {{/CPU_tb/dut/ALU/sub_result[31]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[30]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[29]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[28]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[27]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[26]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[25]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[24]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[23]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[22]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[21]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[20]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[19]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[18]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[17]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[16]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[15]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[14]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[13]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[12]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[11]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[10]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[9]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[8]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[7]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[6]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[5]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[4]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[3]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[2]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[1]} {-radix decimal} {/CPU_tb/dut/ALU/sub_result[0]} {-radix decimal}} /CPU_tb/dut/ALU/sub_result
+# add wave -noupdate -radix decimal /CPU_tb/dut/ALU/mul_result
+# add wave -noupdate -radix unsigned /CPU_tb/dut/ALU/add_carry
+# add wave -noupdate -radix unsigned /CPU_tb/dut/ALU/sub_carry
+# add wave -noupdate -radix unsigned /CPU_tb/dut/ALU/sub_cary
+# add wave -noupdate -radix binary /CPU_tb/dut/ALUControl/alu_opcode
+# add wave -noupdate -radix unsigned /CPU_tb/dut/ALUControl/func7
+# add wave -noupdate -radix unsigned /CPU_tb/dut/ALUControl/func3
+# add wave -noupdate -radix binary /CPU_tb/dut/ALUControl/alu_control
+# add wave -noupdate -radix unsigned /CPU_tb/dut/DataMemory/mem_read
+# add wave -noupdate -radix unsigned /CPU_tb/dut/DataMemory/mem_write
+# add wave -noupdate -radix unsigned /CPU_tb/dut/DataMemory/address
+# add wave -noupdate -radix unsigned /CPU_tb/dut/DataMemory/data_input
+# add wave -noupdate -radix unsigned /CPU_tb/dut/DataMemory/data_output
+# add wave -noupdate -radix unsigned /CPU_tb/dut/MUX2/select
+# add wave -noupdate -radix decimal /CPU_tb/dut/MUX2/a
+# add wave -noupdate -radix decimal /CPU_tb/dut/MUX2/b
+# add wave -noupdate -radix decimal /CPU_tb/dut/MUX2/mux_output
+# add wave -noupdate -radix binary /CPU_tb/dut/ControlUnit/opcode
+# add wave -noupdate -radix unsigned /CPU_tb/dut/ControlUnit/branch
+# add wave -noupdate -radix unsigned /CPU_tb/dut/ControlUnit/memory_read
+# add wave -noupdate -radix unsigned /CPU_tb/dut/ControlUnit/memory_to_register
+# add wave -noupdate -radix unsigned /CPU_tb/dut/ControlUnit/memory_write
+# add wave -noupdate -radix unsigned /CPU_tb/dut/ControlUnit/alu_src
+# add wave -noupdate -radix unsigned /CPU_tb/dut/ControlUnit/reg_write
+# add wave -noupdate -radix binary /CPU_tb/dut/ControlUnit/alu_opcode
+# add wave -noupdate -radix unsigned {/CPU_tb/dut/RegisterFile/registers[0]}
+# add wave -noupdate -radix unsigned {/CPU_tb/dut/RegisterFile/registers[1]}
+# add wave -noupdate -radix unsigned {/CPU_tb/dut/RegisterFile/registers[2]}
+# add wave -noupdate -radix unsigned {/CPU_tb/dut/RegisterFile/registers[3]}
+# add wave -noupdate -radix unsigned {/CPU_tb/dut/DataMemory/memory[0]}
+# add wave -noupdate -radix unsigned {/CPU_tb/dut/DataMemory/memory[1]}
+# add wave -noupdate -radix unsigned {/CPU_tb/dut/DataMemory/memory[2]}
+# TreeUpdate [SetDefaultTree]
+# WaveRestoreCursors {{Cursor 1} {382 ps} 0}
+# quietly wave cursor active 1
+# configure wave -namecolwidth 150
+# configure wave -valuecolwidth 100
+# configure wave -justifyvalue left
+# configure wave -signalnamewidth 1
+# configure wave -snapdistance 10
+# configure wave -datasetprefix 0
+# configure wave -rowmargin 4
+# configure wave -childrowmargin 2
+# configure wave -gridoffset 0
+# configure wave -gridperiod 1
+# configure wave -griddelta 40
+# configure wave -timeline 0
+# configure wave -timelineunits ps
+# update
+# WaveRestoreZoom {100 ps} {1100 ps}
+# run -all
+# ** Note: $stop    : D:/IntelQuartus/ALU/simulation/CPU_tb.v(25)
+#    Time: 3250 ps  Iteration: 0  Instance: /CPU_tb
+# Break in Module CPU_tb at D:/IntelQuartus/ALU/simulation/CPU_tb.v line 25
+# End time: 18:23:38 on Jun 07,2024, Elapsed time: 0:04:42
+# Errors: 0, Warnings: 6
